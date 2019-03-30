@@ -1,7 +1,8 @@
 <?php
 
-namespace  Singleton;
-
+/**
+ * Class Singleton
+ */
 final class Singleton
 {
     /**

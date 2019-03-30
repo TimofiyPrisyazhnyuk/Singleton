@@ -1,14 +1,23 @@
 <?php
 
-namespace Singleton\Tests;
+namespace Tests;
 
-use Singleton\Singleton;
+use Singleton;
 
-require __DIR__ . '/../Singleton.php';
+spl_autoload_register(function ($class) {
+    include __DIR__ . '/../' . $class . '.php';
+});
 
+/**
+ * Class SingletonTest
+ * @package Tests
+ */
 class SingletonTest
 {
-    public function testUniqueness()
+    /**
+     * Test Singleton.
+     */
+    public function test()
     {
         $firstCall = Singleton::getInstance();
         $secondCall = Singleton::getInstance();
@@ -16,4 +25,5 @@ class SingletonTest
     }
 }
 
-(new SingletonTest())->testUniqueness();
+// Run test.
+(new SingletonTest())->test();
